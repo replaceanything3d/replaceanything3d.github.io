@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" type="text/css" href="css/video-comparison.css">
 
+  <link rel="icon" type="image/png" href="images/corgi_favicon.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
   <script type="text/javascript" src="synchronize.js"></script>
   <script type="text/javascript" src="video-comparison.js"></script>
@@ -30,8 +31,323 @@
 <body>
   <div class="container">
       <div class="has-text-centered" style="margin-top: 5%">
-        <h1 class="section-heading">Under Construction</h1>
+        <h1 class="section-heading">ReplaceAnything3D</h1>
+        <p>Text-Guided 3D Scene Editing with Compositional Neural Radiance Fields </p>
+        <h4>Arxiv Submission 2024</h4>
       </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="has-text-centered" style="margin-top: 0% margin-bottom: 20%">
+          <video width="100%" controls muted autoplay loop>
+            <source src="videos/replace_anything.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="one-half column has-text-centered">
+        <a href="https://github.com/ebartrum" class="author-link">Edward Bartrum</a>
+        <h6>University College London, Alan Turing Institute</h6>
+      </div>
+      <div class="one-half column has-text-centered">
+        <a href="" class="author-link">Thu Nguyen-Phuoc</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="one-third column has-text-centered">
+        <a href="" class="author-link">Chris Xie</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+      <div class="one-third column has-text-centered">
+        <a href="" class="author-link">Zhengqin Li</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+      <div class="one-third column has-text-centered">
+        <a href="" class="author-link">Numair Khan</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+    </div>
+    <div class="row"  style="margin-bottom: 0%">
+      <div class="one-third column has-text-centered">
+        <a href="" class="author-link">Armen Avetisyan</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+      <div class="one-third column has-text-centered">
+        <a href="" class="author-link">Douglas Lanman</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+      <div class="one-third column has-text-centered">
+        <a href="" class="author-link">Lei Xiao</a>
+        <h6>Reality Labs Research, Meta</h6>
+      </div>
+      
+    </div>
+    
+    <div class="row">
+      <div class="has-text-centered" >        
+        <figure style="margin-bottom: 0%">
+          <a href=""><img src="images/arxiv_logo.png" width="64" width="64"/></a>
+        </figure>
+        <a href="">Paper - Coming Soon!</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="has-text-centered" style="margin-top: 8%">
+        <h3 class="section-heading">Abstract</h3>
+        <p>We introduce ReplaceAnything3D model (RAM3D), a novel text-guided 3D scene editing method that enables
+          the replacement of specific objects within a scene. Given multiview images of a scene, a text prompt
+          describing the object to replace, and text prompt describing the new object, our Erase-and-Replace approach
+          can effectively swap objects in the scene with newly generated content while maintaining 3D consistency
+          across multiple viewpoints. We demonstrate the versatility of ReplaceAnything3D by applying it to various
+          realistic 3D scenes, showcasing results of modified foreground objects that are well-integrated with the
+          rest of the scene without affecting its overall integrity. </p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="has-text-centered" style="margin-top: 8%">
+        <h3 class="section-heading">Method</h3>
+        <image src="images/pipeline_ram3d.png" width="100%"/>
+        <p>We distill a pretrained inpainting Latent Diffusion Model
+          over 3 stages</p>
+          <ul>
+            <li><b>Erase stage:</b> remove the masked objects and fill in the background</li>
+            <li><b>Replace stage:</b> generate new objects and composite them to
+          the inpainted background scene</li>
+            <li><b>Finally:</b> train a new NeRF using the edited scene images</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="has-text-centered" style="margin-top: 8%">
+        <h3 class="section-heading">Visualise Scene edits</h3>
+        <p>Click to play video, then drag the slider to compare the original and edited scene</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="one-half column">
+      <div class="vcs_wrapper" data-loop="true">
+          <video muted autoplay loop>
+              <source src="videos/sliders/statue-original.mp4" type="video/mp4">
+        </video>
+        <video muted autoplay loop>
+              <source src="videos/sliders/statue-edit-michelangelo.mp4" type="video/mp4">
+        </video>
+      </div>
+      </div>
+      <div class="one-half column">
+        <div class="vcs_wrapper" data-loop="true">
+            <video muted autoplay loop>
+              <source src="videos/sliders/fern-original.mp4" type="video/mp4">
+          </video>
+          <video muted autoplay loop>
+              <source src="videos/sliders/fern-edit-bunny.mp4" type="video/mp4">
+          </video>
+        </div>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="has-text-centered" style="margin-top: 8%">
+        <h3 class="section-heading">Additional Results</h3>
+      </div>
+    </div>
+    <div class="row has-text-centered" style="margin-top: 3%">
+    <h5 class="section-heading" style="margin-bottom: 0%">Statue scene</h5>
+  </div>
+    <div class="row">
+      <div class="one-half column" style="text-align:right">
+        <figure>
+          <video width="100%" muted autoplay loop>
+            <source src="videos/results/statue/octopus.mp4" type="video/mp4">
+          </video>                  
+          <figcaption class="has-text-centered">Octopus</figcaption>
+            </figure>
+        </div>
+        <div class="one-half column" style="text-align:left">
+          <figure>
+            <video width="100%" muted autoplay loop>
+              <source src="videos/results/statue/buddha.mp4" type="video/mp4">
+            </video>                  
+            <figcaption class="has-text-centered">Buddha</figcaption>
+              </figure>
+          </div>
+    </div>
+    <div class="row">
+      <div class="one-half column" style="text-align:right">
+        <figure>
+          <video width="100%" muted autoplay loop>
+            <source src="videos/results/statue/butterfly.mp4" type="video/mp4">
+          </video>                  
+          <figcaption class="has-text-centered">Butterfly</figcaption>
+            </figure>
+        </div>
+        <div class="one-half column" style="text-align:left">
+          <figure>
+            <video width="100%" muted autoplay loop>
+              <source src="videos/results/statue/crab.mp4" type="video/mp4">
+            </video>                  
+            <figcaption class="has-text-centered">Crab</figcaption>
+              </figure>
+          </div>
+    </div>
+    <div class="row has-text-centered" style="margin-top: 3%">
+      <h5 class="section-heading" style="margin-bottom: 0%">Fern Scene</h5>
+    </div>
+    <div class="row">
+      <div class="one-half column" style="text-align:right">
+        <figure>
+          <video width="100%" muted autoplay loop>
+            <source src="videos/results/fern/strawberry.mp4" type="video/mp4">
+          </video>                  
+          <figcaption class="has-text-centered">Strawberry</figcaption>
+            </figure>
+        </div>
+        <div class="one-half column" style="text-align:left">
+          <figure>
+            <video width="100%" muted autoplay loop>
+              <source src="videos/results/fern/cactus.mp4" type="video/mp4">
+            </video>                  
+            <figcaption class="has-text-centered">Cactus</figcaption>
+              </figure>
+          </div>
+    </div>
+      <div class="row">
+        <div class="one-half column" style="text-align:right">
+          <figure>
+            <video width="100%" muted autoplay loop>
+              <source src="videos/results/fern/mushroom.mp4" type="video/mp4">
+            </video>                  
+            <figcaption class="has-text-centered">Mushroom</figcaption>
+              </figure>
+          </div>
+          <div class="one-half column" style="text-align:left">
+            <figure>
+              <video width="100%" muted autoplay loop>
+                <source src="videos/results/fern/fried-chicken.mp4" type="video/mp4">
+              </video>                  
+              <figcaption class="has-text-centered">Fried Chicken</figcaption>
+                </figure>
+            </div>
+      </div>
+        <div class="row has-text-centered" style="margin-top: 3%">
+          <h5 class="section-heading" style="margin-bottom: 0%">Spin-NeRF red net scene</h5>
+        </div>
+      <div class="row">
+        <div class="one-half column" style="text-align:right">
+          <figure>
+            <video width="100%" muted autoplay loop>
+              <source src="videos/results/rednet/bubble-tea.mp4" type="video/mp4">
+            </video>                  
+            <figcaption class="has-text-centered">Bubble Tea</figcaption>
+              </figure>
+          </div>
+          <div class="one-half column" style="text-align:left">
+            <figure>
+              <video width="100%" muted autoplay loop>
+                <source src="videos/results/rednet/cthulu.mp4" type="video/mp4">
+              </video>                  
+              <figcaption class="has-text-centered">Cthulu</figcaption>
+                </figure>
+            </div>
+      </div>
+          <div class="row">
+            <div class="one-half column" style="text-align:right">
+              <figure>
+                <video width="100%" muted autoplay loop>
+                  <source src="videos/results/rednet/mushroom.mp4" type="video/mp4">
+                </video>                  
+                <figcaption class="has-text-centered">Mushroom</figcaption>
+                  </figure>
+              </div>
+              <div class="one-half column" style="text-align:left">
+                <figure>
+                  <video width="100%" muted autoplay loop>
+                    <source src="videos/results/rednet/slippers.mp4" type="video/mp4">
+                  </video>                  
+                  <figcaption class="has-text-centered">Slippers</figcaption>
+                    </figure>
+                </div>
+          </div>
+        <div class="row has-text-centered" style="margin-top: 3%">
+          <h5 class="section-heading" style="margin-bottom: 0%">Mip-NeRF Garden scene</h5>
+        </div>
+      <div class="row">
+        <div class="one-half column" style="text-align:right">
+          <figure>
+            <video width="100%" muted autoplay loop>
+              <source src="videos/results/garden/mushroom.mp4" type="video/mp4">
+            </video>                  
+            <figcaption class="has-text-centered">Mushroom</figcaption>
+              </figure>
+          </div>
+          <div class="one-half column" style="text-align:left">
+            <figure>
+              <video width="100%" muted autoplay loop>
+                <source src="videos/results/garden/pineapple.mp4" type="video/mp4">
+              </video>                  
+              <figcaption class="has-text-centered">Pineapple</figcaption>
+                </figure>
+            </div>
+      </div>
+          <div class="row">
+            <div class="one-half column" style="text-align:right">
+              <figure>
+                <video width="100%" muted autoplay loop>
+                  <source src="videos/results/garden/popcorn.mp4" type="video/mp4">
+                </video>                  
+                <figcaption class="has-text-centered">Popcorn</figcaption>
+                  </figure>
+              </div>
+              <div class="one-half column" style="text-align:left">
+                <figure>
+                  <video width="100%" muted autoplay loop>
+                    <source src="videos/results/garden/chess.mp4" type="video/mp4">
+                  </video>                  
+                  <figcaption class="has-text-centered">Chess Piece</figcaption>
+                    </figure>
+                </div>
+          </div>
+  <div class="container">
+    <div class="row">
+      <div style="margin-top: 10%">
+        <h3 class="section-heading has-text-centered">Citation</h3>
+        <h6 class="has-text-centered">If you find our work useful, please consider citing</h6>
+        <pre>
+        <code>
+              BibTeX coming soon
+            </code>
+            </pre>
+      </div>
+    </div>
+    <div class="container">
+    <div class="row">
+      
+      <div class="one-third column" style="text-align:left">
+        <figure class="verticalcenter">
+            <a href="https://www.ucl.ac.uk/"><img src="images/logos/ucl_logo_cropped.png" width="100%"/></a>          
+            </figure>
+        </div>
+        <div class="one-third column" style="text-align:center">
+          <figure class="verticalcenter">
+            <a href="https://www.turing.ac.uk/"><img src="images/logos/ati.png" width="100%"/></a>      
+              </figure>
+          </div>
+        <div class="one-third column" style="text-align:right">
+          <figure class="verticalcenter">
+          <a href="https://about.meta.com/realitylabs/"><img src="images/logos/reality_labs.png" width="100%"/></a>      
+              </figure>
+          </div>
+    </div>
+  </div>
+  </div>
 </body>
 </html>
