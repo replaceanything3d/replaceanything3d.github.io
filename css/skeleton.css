@@ -416,6 +416,7 @@ there.
   .one-half.column                { width: 49%; }
   h6 { font-size: 0.8rem; line-height: 1.6;  letter-spacing: 0; }
   figure { margin: 5px; }
+  code { font-size: 60%;}
   .author-link {
     text-align: center!important;
     font-size: 0.8em;
