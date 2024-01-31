@@ -409,11 +409,12 @@ there.
   color: black
 }
 
-/* Larger than mobile */
+/* Mobile only */
 @media (max-width: 750px) {
   .one-third.column               { width: 33.3%; }
   .two-thirds.column              { width: 66.6%; }
   .one-half.column                { width: 49%; }
+  .section-heading               { font-size: 3.8rem; }
   h6 { font-size: 0.8rem; line-height: 1.6;  letter-spacing: 0; }
   figure { margin: 5px; }
   code { font-size: 60%;}
