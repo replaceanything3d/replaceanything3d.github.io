@@ -402,11 +402,25 @@ there.
 */
 
 
+.author-link {
+  text-align: center!important;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: black
+}
+
 /* Larger than mobile */
-@media (min-width: 350px) {
-  .one-third.column               { width: 30.6666666667%; }
-  .two-thirds.column              { width: 65.3333333333%; }
-  .one-half.column                { width: 48%; }
+@media (max-width: 750px) {
+  .one-third.column               { width: 33.3%; }
+  .two-thirds.column              { width: 66.6%; }
+  .one-half.column                { width: 49%; }
+  h6 { font-size: 0.8rem; line-height: 1.6;  letter-spacing: 0; }
+  .author-link {
+    text-align: center!important;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: black
+  }
 }
 
 /* Larger than phablet (also point when grid becomes active) */
@@ -425,12 +439,6 @@ there.
   text-align: center!important;
 }
 
-.author-link {
-  text-align: center!important;
-  font-size: 1.3em;
-  text-decoration: none;
-  color: black
-}
 
 .verticalcenter {
   display: table-cell;
